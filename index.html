@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تایبەت لۆتو Susi 🤍</title>
     <style>
-        /* خلفية سينمائية فخمة */
         body {
             background: linear-gradient(-45deg, #060609, #111122, #0a0a0f, #16162a);
             background-size: 400% 400%;
@@ -31,7 +30,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* تأثير تساقط بتلات الورد */
         .petal {
             position: absolute;
             background-color: #ffb7c5;
@@ -51,7 +49,6 @@
             100% { transform: translate(100px, 100vh) rotate(360deg); }
         }
 
-        /* المربع الزجاجي المتطور */
         .container {
             width: 100%;
             max-width: 540px;
@@ -65,16 +62,6 @@
             z-index: 10;
             animation: popIn 1s cubic-bezier(0.4, 0, 0.2, 1);
             transition: all 0.5s ease;
-        }
-
-        .container:hover {
-            border-color: rgba(167, 139, 250, 0.3);
-            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
-        }
-
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.9) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         h1 {
@@ -91,13 +78,11 @@
             line-height: 1.6;
         }
 
-        /* تصميم العداد التنازلي الأنيق */
         .countdown-title {
             font-size: 14px;
             color: #a78bfa;
             margin-bottom: 12px;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         .countdown-container {
@@ -130,7 +115,6 @@
             display: block;
         }
 
-        /* زر متفاعل ومميز */
         .magic-btn {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
@@ -141,21 +125,19 @@
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
         }
 
         .magic-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(124, 58, 237, 0.6);
         }
 
-        /* رسالة السند المخفية بتأثير سينمائي */
         .hidden-message {
             max-height: 0;
             opacity: 0;
             transform: scale(0.95);
             overflow: hidden;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.8s ease;
             background: rgba(124, 58, 237, 0.06);
             border-right: 4px solid #7c3aed;
             border-radius: 12px;
@@ -200,7 +182,6 @@
         <h1>بەخێرهاتی سایە خان! 🛑🤍</h1>
         <p class="subtitle">تێبینی: چوونە ژوورەوە بۆ تەمبەلەکان مەمنوعە! ئێرە تەنها لەبۆ زیرەکەکان دروستکرایە کە خەریکی دەرس خیندنن.</p>
         
-        <!-- العداد التنازلي المضاف -->
         <div class="countdown-title">⏳ کاتی ماوە بۆ کۆتایی هاتنی تاقیکردنەوەکان و ئازادی:</div>
         <div class="countdown-container">
             <div class="time-box">
@@ -225,12 +206,11 @@
         
         <div class="hidden-message" id="messageBox">
             ئەتو بەتەنێ نی، <span class="highlight">سایە</span>.. 🤍<br>
-            بەجدی تەئکیدم ئێستا زۆر ماندیی لەدەست دەرسەکانەوە، بەس بەتەنی دوو دەرست مایە لۆ کۆتایی و دەرچوونت و ڕزگاربوونت لەو هەموو عەزابە! ئەتۆ کچەکی زۆر بەتاقەتی لۆ خیندن و تەئکیدیشم بە دەرەجەیەکی بەرز دەگەیت لۆ سەرکەوتن. ئەمن دایم لێرەم لەبۆ ئەوەی جێت لێبگرم و پشتگیریت بکەم کاتەک بێزار دەبی. ماندوو نەبیت و دایم سەرکەوتوو بی! 🌟
+            بەجدی تەئکیدم ئێستا زۆر ماندیی لەدەست دەرسەکانەوە، بەس بەتەنی دوو دەرست مایە لۆ کۆتایی و دەرچوونت و ڕزگاربوونت لەو هەموو عەزابە! ئەتۆ کچەكي زۆر بەتاقەتی لۆ خیندن و تەئکیدیشم بە دەرەجەیەکی بەرز دەگەیت لۆ سەرکەوتن. ئەمن دایم لێرەم لەبۆ ئەوەی جێت لێبگرم و پشتگیریت بکەم کاتەک بێزار دەبی. ماندوو نەبیت و دایم سەرکەوتوو بی! 🌟
         </div>
     </div>
 
     <script>
-        // برمجة العداد التنازلي التلقائي حتى 1-7-2026
         const targetDate = new Date("July 1, 2026 00:00:00").getTime();
 
         const countdownInterval = setInterval(function() {
@@ -256,16 +236,13 @@
         function showMessage() {
             const btn = document.getElementById('actionBtn');
             const box = document.getElementById('messageBox');
-            
             btn.style.opacity = '0';
             btn.style.transform = 'scale(0.9)';
-            
             setTimeout(() => {
                 btn.style.display = 'none';
                 box.classList.add('show');
             }, 300);
         }
     </script>
-
 </body>
 </html>
