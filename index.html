@@ -16,12 +16,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -53,9 +53,10 @@
 
         /* المربع الزجاجي المتطور */
         .container {
-            max-width: 520px;
+            width: 100%;
+            max-width: 540px;
             background: rgba(255, 255, 255, 0.03);
-            padding: 50px 35px;
+            padding: 40px 30px;
             border-radius: 24px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -86,8 +87,47 @@
         .subtitle {
             font-size: 15px;
             color: #a0a5b0;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             line-height: 1.6;
+        }
+
+        /* تصميم العداد التنازلي الأنيق */
+        .countdown-title {
+            font-size: 14px;
+            color: #a78bfa;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            direction: ltr;
+        }
+
+        .time-box {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            padding: 12px;
+            border-radius: 14px;
+            min-width: 70px;
+        }
+
+        .time-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 11px;
+            color: #9ea0a5;
+            margin-top: 4px;
+            display: block;
         }
 
         /* زر متفاعل ومميز */
@@ -146,9 +186,9 @@
             const petal = document.createElement('div');
             petal.classList.add('petal');
             petal.style.left = Math.random() * window.innerWidth + 'px';
-            petal.style.size = Math.random() * 10 + 5 + 'px';
-            petal.style.width = petal.style.size;
-            petal.style.height = petal.style.size;
+            const size = Math.random() * 10 + 5;
+            petal.style.width = size + 'px';
+            petal.style.height = size + 'px';
             petal.style.animationDuration = Math.random() * 5 + 5 + 's';
             document.body.appendChild(petal);
             setTimeout(() => { petal.remove(); }, 10000);
@@ -160,6 +200,27 @@
         <h1>بەخێرهاتی سایە خان! 🛑🤍</h1>
         <p class="subtitle">تێبینی: چوونە ژوورەوە بۆ تەمبەلەکان مەمنوعە! ئێرە تەنها لەبۆ زیرەکەکان دروستکرایە کە خەریکی دەرس خیندنن.</p>
         
+        <!-- العداد التنازلي المضاف -->
+        <div class="countdown-title">⏳ کاتی ماوە بۆ کۆتایی هاتنی تاقیکردنەوەکان و ئازادی:</div>
+        <div class="countdown-container">
+            <div class="time-box">
+                <span class="time-num" id="seconds">00</span>
+                <span class="time-label">چرکە</span>
+            </div>
+            <div class="time-box">
+                <span class="time-num" id="minutes">00</span>
+                <span class="time-label">خولەک</span>
+            </div>
+            <div class="time-box">
+                <span class="time-num" id="hours">00</span>
+                <span class="time-label">کاتژمێر</span>
+            </div>
+            <div class="time-box">
+                <span class="time-num" id="days">00</span>
+                <span class="time-label">ڕۆژ</span>
+            </div>
+        </div>
+
         <button class="magic-btn" id="actionBtn" onclick="showMessage()">کلیک لێرە بکە پێش ئەوەی مۆبایلت بتەقێتەوە! 💣🛡️</button>
         
         <div class="hidden-message" id="messageBox">
@@ -169,6 +230,29 @@
     </div>
 
     <script>
+        // برمجة العداد التنازلي التلقائي حتى 1-7-2026
+        const targetDate = new Date("July 1, 2026 00:00:00").getTime();
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-container").innerHTML = "<b style='color:#10b981; font-size:20px;'>پیرۆزە! تاقیکردنەوەکان کۆتاییان هات 🎉</b>";
+            }
+        }, 1000);
+
         function showMessage() {
             const btn = document.getElementById('actionBtn');
             const box = document.getElementById('messageBox');
