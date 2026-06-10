@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مەودای تایبەتی سایە 🤍</title>
     <style>
+        /* خلفية فخمة ومتحركة بالتدريج */
         body {
-            background-color: #0d0d13;
+            background: linear-gradient(-45deg, #07070a, #0f0f1a, #0d0d13, #141424);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -18,90 +21,128 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            overflow: hidden;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* المربع الزجاجي الفخم بتأثير احترافي */
         .container {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
+            max-width: 520px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 50px 35px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            border-color: rgba(118, 75, 162, 0.2);
+            box-shadow: 0 20px 40px rgba(118, 75, 162, 0.1);
         }
 
         h1 {
-            font-size: 26px;
-            margin-bottom: 10px;
-            color: #e0e0e0;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #f5f5f7;
+            letter-spacing: -0.5px;
         }
 
-        p.subtitle {
-            font-size: 16px;
-            color: #8a8a98;
-            margin-bottom: 30px;
+        .subtitle {
+            font-size: 15px;
+            color: #9ea0a5;
+            margin-bottom: 35px;
+            line-height: 1.5;
         }
 
+        /* زر متفاعل مع تأثير نبض ناعم وعميق */
         .magic-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
             border: none;
-            padding: 15px 35px;
+            padding: 16px 40px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
         }
 
         .magic-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.5);
+            transform: scale(1.03);
+            box-shadow: 0 6px 25px rgba(124, 58, 237, 0.5);
+            background: linear-gradient(135deg, #5b52f9 0%, #8b4eff 100%);
         }
 
+        /* رسالة السند والدعم بأجمل حركة انتقال تدريجية ونعومة تامة */
         .hidden-message {
-            display: none;
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(118, 75, 162, 0.1);
-            border-right: 4px solid #764ba2;
-            border-radius: 10px;
+            max-height: 0;
+            opacity: 0;
+            transform: scale(0.95);
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(124, 58, 237, 0.05);
+            border-right: 4px solid #7c3aed;
+            border-radius: 12px;
             font-size: 16px;
-            line-height: 1.6;
-            color: #e2e2e9;
-            animation: fadeIn 1s ease forwards;
+            line-height: 1.7;
+            color: #e4e4e7;
+            text-align: right;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hidden-message.show {
+            max-height: 300px;
+            opacity: 1;
+            transform: scale(1);
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            color: #a78bfa;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- العنوان الرئيسي للموقع -->
-        <h1>بەخێربێیت بۆ مەودای تایبەتی خۆت، سایە 🤍</h1>
+        <h1>یاوەر و ساباتت بێت، سایە 🤍</h1>
+        <p class="subtitle">ئەم شوێنە تەنها بۆ کاتە قورسەکان دروستکراوە؛ لێرە کەمێک پشوو بدە.</p>
         
-        <!-- الكلام الصغير اللي تحت العنوان -->
-        <p class="subtitle">ئەم شوێنە تەنها بۆ تۆ دروستکراوە کاتێک هەست بە ماندوێتی دەکەیت</p>
+        <button class="magic-btn" id="actionBtn" onclick="showMessage()">ئەگەر هەستت بە ماندوێتی یان پاڵەپەستۆ کرد، لێرە کلیک بکە 🛡️</button>
         
-        <!-- الكلام المكتوب داخل الزر -->
-        <button class="magic-btn" id="actionBtn" onclick="showMessage()">ئەگەر هەستت بە پاڵەپەستۆ یان ماندوێتی کرد، لێرە کلیک بکە 🛡️</button>
-        
-        <!-- الرسالة الطويلة اللي تظهر بعد ما تضغط على الزر -->
-        <div class="hidden-message" id="messageBox">
-            تۆ بە تەنیا نیت، سایە.. 🤍<br>
-            دەزانم خوێندن و ئەم ماوەیە چەندە ماندووکەرن، بەڵام تەنها دوو دەرس ماوە بۆ گەیشتن بە خەونەکەت و دەرچوون. من هەمیشە لێرەم بۆ ئەوەی گوێت لێبگرم و پشتگیریت بکەم. ماندوو مەبە، تۆ کچێکی زۆر بەهێزیت و دڵنیام بە نمرەی بەرزەوە دەرچوو دەبیت.. ماندوێتیت نەبێت یاوەر و سەرکەوتوو بیت! 🌟
+        <!-- الرسالة بالكردية السورانية بأسلوب قوي ورجولي ومحترم --><div class="hidden-message" id="messageBox">
+            تۆ بە تەنیا نیت، <span class="highlight">سایە</span>.. 🤍<br>
+            خوێندن و ماندووبوونی ئەم ماوەیە هەرچەنێک قورس بێت، تۆ لەوە بەهێزتری کە کۆڵ بدەیت. تەنها دوو دەرس ماوە بۆ کۆتایی و دەرچوونت، دڵنیام بە سەرکەوتوویی تێیدەپەڕێنیت. لە هەر کاتێکدا پێویستت بە پاڵپشتی بوو یان ویستت باری سەر شانت سووک بکەیت، من لێرەم بۆ ئەوەی هاوکار و گوێگرت بم. ماندوو نەبیت و هەمیشە سەرکەوتوو بیت لە ژیانتدا! 🌟
         </div>
     </div>
 
     <script>
         function showMessage() {
-            document.getElementById('actionBtn').style.display = 'none';
-            document.getElementById('messageBox').style.display = 'block';
+            // إخفاء الزر مع حركة ناعمة وإظهار الرسالة بانتقال سينمائي احترافي
+            const btn = document.getElementById('actionBtn');
+            const box = document.getElementById('messageBox');
+            
+            btn.style.opacity = '0';
+            btn.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                btn.style.display = 'none';
+                box.classList.add('show');
+            }, 300);
         }
     </script>
 
