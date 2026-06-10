@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مەودای تایبەتی سایە 🤍</title>
+    <style>
+        body {
+            background-color: #0d0d13;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            color: #8a8a98;
+            margin-bottom: 30px;
+        }
+
+        .magic-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .magic-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.5);
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(118, 75, 162, 0.1);
+            border-right: 4px solid #764ba2;
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e2e2e9;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- العنوان الرئيسي للموقع -->
+        <h1>بەخێربێیت بۆ مەودای تایبەتی خۆت، سایە 🤍</h1>
+        
+        <!-- الكلام الصغير اللي تحت العنوان -->
+        <p class="subtitle">ئەم شوێنە تەنها بۆ تۆ دروستکراوە کاتێک هەست بە ماندوێتی دەکەیت</p>
+        
+        <!-- الكلام المكتوب داخل الزر -->
+        <button class="magic-btn" id="actionBtn" onclick="showMessage()">ئەگەر هەستت بە پاڵەپەستۆ یان ماندوێتی کرد، لێرە کلیک بکە 🛡️</button>
+        
+        <!-- الرسالة الطويلة اللي تظهر بعد ما تضغط على الزر -->
+        <div class="hidden-message" id="messageBox">
+            تۆ بە تەنیا نیت، سایە.. 🤍<br>
+            دەزانم خوێندن و ئەم ماوەیە چەندە ماندووکەرن، بەڵام تەنها دوو دەرس ماوە بۆ گەیشتن بە خەونەکەت و دەرچوون. من هەمیشە لێرەم بۆ ئەوەی گوێت لێبگرم و پشتگیریت بکەم. ماندوو مەبە، تۆ کچێکی زۆر بەهێزیت و دڵنیام بە نمرەی بەرزەوە دەرچوو دەبیت.. ماندوێتیت نەبێت یاوەر و سەرکەوتوو بیت! 🌟
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('actionBtn').style.display = 'none';
+            document.getElementById('messageBox').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
