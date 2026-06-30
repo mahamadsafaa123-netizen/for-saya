@@ -84,7 +84,6 @@
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* حماية فائقة للنصوص القصير والعناوين لمنع الانعكاس */
         .kurd-fix {
             direction: rtl !important;
             unicode-bidi: isolate !important;
@@ -92,7 +91,6 @@
             display: block;
         }
 
-        /* حماية نصوص الفقرات الطويلة */
         .kurd-paragraph {
             direction: rtl !important;
             unicode-bidi: isolate !important;
@@ -216,7 +214,7 @@
 
         .lyric-line {
             font-size: 15px;
-            color: #444;
+            color: #666;
             padding: 8px 0;
             transition: all 0.3s ease;
             font-weight: 600;
@@ -251,7 +249,7 @@
         <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
         <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
             بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتیادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
-            ئەتو کچەکی زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
+            ئتو کچەکی زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
             
             <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
         </div>
@@ -299,8 +297,8 @@
         </div>
     </div>
 
-    <!-- تم التحديث لقراءة ملف الأغنية المباشر من مستودعك -->
-    <audio id="mainAudio" src="song.mp3"></audio>
+    <!-- تم استخدام رابط جيت هاب المباشر والسريع لضمان عمل الأغنية دون مشاكل تسمية أو مسافات -->
+    <audio id="mainAudio" src="https://mahamadsafaa123-netizen.github.io/for-saya/zakaria-abdull%20saya.mp3" preload="auto"></audio>
 
     <script>
         function startRoseRain() {
@@ -347,6 +345,10 @@
             document.getElementById('page2').classList.remove('active');
             document.getElementById('page3').classList.add('active');
             startRoseRain();
+            
+            // محاولة تحميل الصوت مسبقاً لضمان التشغيل الفوري
+            const audio = document.getElementById('mainAudio');
+            audio.load();
         }
 
         const audio = document.getElementById('mainAudio');
@@ -356,12 +358,20 @@
 
         function toggleAudio() {
             const icon = document.getElementById('playIcon');
-            isPlaying = !isPlaying;
-            if(isPlaying) {
-                audio.play();
-                icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+            if(!isPlaying) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                }).catch(err => {
+                    console.log("الرجاء الضغط مرة أخرى: حماية المتصفح منعت التشغيل التلقائي", err);
+                    // إعادة محاولة سريعة
+                    audio.play();
+                    isPlaying = true;
+                    icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                });
             } else {
                 audio.pause();
+                isPlaying = false;
                 icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
             }
         }
