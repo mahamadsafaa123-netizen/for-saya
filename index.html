@@ -294,7 +294,7 @@
         </div>
     </div>
 
-    <audio id="mainAudio" src="https://cdn.jsdelivr.net/gh/mahamadsafaa123-netizen/for-saya@main/song.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <audio id="mainAudio" src="https://raw.githubusercontent.com/mahamadsafaa123-netizen/for-saya/main/song.mp3" preload="auto" crossorigin="anonymous"></audio>
 
     <script>
         function startRoseRain() {
@@ -321,14 +321,6 @@
             if (password === 'بژی حەمە') {
                 document.getElementById('page1').classList.remove('active');
                 document.getElementById('page2').classList.add('active');
-                
-                // تحضير الصوت مسبقاً فور إدخال كلمة المرور لتخطي قيود المتصفح الصارمة
-                const audio = document.getElementById('mainAudio');
-                audio.play().then(() => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                }).catch(e => console.log("Preloading active"));
-                
                 return;
             }
             
@@ -349,10 +341,9 @@
             document.getElementById('page3').classList.add('active');
             startRoseRain();
             
-            // محاولة تشغيل تلقائي عند الانتقال للواجهة الثالثة
-            setTimeout(() => {
-                toggleAudio();
-            }, 300);
+            // تهيئة الصوت فور الانتقال للواجهة الثالثة لضمان الاستجابة السريعة
+            const audio = document.getElementById('mainAudio');
+            audio.load();
         }
 
         const audio = document.getElementById('mainAudio');
@@ -367,13 +358,7 @@
                     isPlaying = true;
                     icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 }).catch(err => {
-                    console.log("Error playing audio, trying direct source assignment:", err);
-                    // حل احتياطي سريع في حال حدوث أي مشكلة في الاستجابة المباشرة
-                    audio.src = "https://cdn.jsdelivr.net/gh/mahamadsafaa123-netizen/for-saya@main/song.mp3";
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
-                    });
+                    console.log("الرجاء الضغط مرة أخرى، المتصفح يطلب تفاعلاً إضافياً:", err);
                 });
             } else {
                 audio.pause();
