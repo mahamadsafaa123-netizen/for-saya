@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تایبەت لۆتو Susi 🤍</title>
+    <title>سەکۆی سەرکەوتنی سايه 🎓✨</title>
     <style>
-        /* كود استدعاء خط Rabar المخصص */
         @font-face {
             font-family: 'Rabar_015';
             src: url('Rabar_015.ttf') format('truetype'); 
@@ -13,22 +12,25 @@
             font-style: normal;
         }
 
+        :root {
+            --primary: #8b5cf6;
+            --spotify-green: #1db954;
+            --bg-dark: #09090e;
+        }
+
         body {
-            background: linear-gradient(-45deg, #060609, #111122, #0a0a0f, #16162a);
+            background: linear-gradient(-45deg, #06060c, #121224, #0a0a15, #1a1a3a);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: #ffffff;
-            font-family: 'Rabar_015', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Rabar_015', 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 24px; /* زيادة الهامش الخارجي ليعطي مساحة أكبر حول الكارد */
-            box-sizing: border-box;
-            text-align: center;
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
         }
 
@@ -38,227 +40,350 @@
             100% { background-position: 0% 50%; }
         }
 
-        .petal {
+        .rose-petal {
             position: absolute;
-            background-color: #ffb7c5;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
             border-radius: 150% 0 150% 150%;
-            opacity: 0.7;
             pointer-events: none;
-            animation: fade 10s infinite linear, drop 10s infinite linear;
+            z-index: 1;
+            opacity: 0;
+            transform-style: preserve-3d;
+            animation: fallAndRotate 8s infinite linear;
         }
 
-        @keyframes fade {
-            0%, 90% { opacity: 0.7; }
-            100% { opacity: 0; }
+        @keyframes fallAndRotate {
+            0% { top: -10%; opacity: 0; transform: translateX(0) rotateX(0deg) rotateY(0deg); }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { top: 110%; opacity: 0; transform: translateX(150px) rotateX(360deg) rotateY(360deg); }
         }
 
-        @keyframes drop {
-            0% { transform: translate(0, -10px) rotate(0deg); }
-            100% { transform: translate(100px, 100vh) rotate(360deg); }
-        }
-
-        /* المربع الزجاجي المتطور - تم تعديله ليكون أصغر وأبعد ومريح للعين */
-        .container {
-            width: 92%; /* لترك مسافة ممتازة على أطراف الشاشات الصغيرة */
-            max-width: 420px; /* تقليل العرض الأقصى لتبدو الشاشة أبعد وأرتب */
+        .page {
+            display: none;
+            width: 90%;
+            max-width: 420px;
             background: rgba(255, 255, 255, 0.03);
-            padding: 30px 20px; /* تقليل الحشو الداخلي ليصبح الكارد أنحف */
+            padding: 30px 24px;
             border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(139, 92, 246, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 10;
-            animation: popIn 1s cubic-bezier(0.4, 0, 0.2, 1);
-            transition: all 0.5s ease;
             box-sizing: border-box;
+            text-align: center;
         }
 
-        h1 {
-            font-size: 24px; /* تصغير طفيف لتتناسب مع أبعاد الموبايل المريحة */
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #f5f5f7;
+        .page.active {
+            display: block;
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        .subtitle {
-            font-size: 14px; /* وزن مثالي للقراءة دون تضخيم */
-            color: #a0a5b0;
-            margin-bottom: 25px;
-            line-height: 1.6;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        .countdown-title {
-            font-size: 13px;
-            color: #a78bfa;
+        /* حماية فائقة للنصوص القصير والعناوين لمنع الانعكاس */
+        .kurd-fix {
+            direction: rtl !important;
+            unicode-bidi: isolate !important;
+            text-align: center;
+            display: block;
+        }
+
+        /* حماية نصوص الفقرات الطويلة */
+        .kurd-paragraph {
+            direction: rtl !important;
+            unicode-bidi: isolate !important;
+            text-align: justify;
+            text-align-last: center;
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        .highlighted-line {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fbbf24;
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+            margin-top: 25px;
             margin-bottom: 15px;
-            font-weight: 600;
+            text-align: center;
+            direction: rtl !important;
+            unicode-bidi: isolate !important;
         }
 
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px; /* تقليص الفراغات بين مربعات الوقت */
-            margin-bottom: 30px;
-            direction: ltr;
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 14px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            box-sizing: border-box;
+            transition: border 0.3s;
         }
+        input[type="text"]:focus { border-color: var(--primary); }
 
-        .time-box {
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            padding: 10px 6px; /* جعل الصناديق أصغر ومتناسقة */
-            border-radius: 12px;
-            flex: 1;
-            max-width: 65px;
-        }
-
-        .time-num {
-            font-size: 20px; /* تصغير الأرقام لتظهر أبعد */
-            font-weight: 700;
-            color: #ffffff;
-            display: block;
-        }
-
-        .time-label {
-            font-size: 11px;
-            color: #9ea0a5;
-            margin-top: 4px;
-            display: block;
-        }
-
-        .magic-btn {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
             color: white;
             border: none;
-            padding: 14px 28px; /* تقليص حجم الزر ليظهر أرتب */
-            font-size: 14px;
-            font-weight: 600;
             border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
-            transition: all 0.4s ease;
-            width: 100%; /* ليكون متناسقاً تماماً مع حواف الكارد المقلص */
-            box-sizing: border-box;
-            font-family: 'Rabar_015', sans-serif;
-        }
-
-        .magic-btn:hover {
-            transform: scale(1.02);
-        }
-
-        .hidden-message {
-            max-height: 0;
-            opacity: 0;
-            transform: scale(0.95);
-            overflow: hidden;
-            transition: all 0.8s ease;
-            background: rgba(124, 58, 237, 0.06);
-            border-right: 4px solid #7c3aed;
-            border-radius: 12px;
-            font-size: 15px;
-            line-height: 1.8;
-            color: #e4e4e7;
-            text-align: right;
-            box-sizing: border-box;
-        }
-
-        .hidden-message.show {
-            max-height: 450px;
-            opacity: 1;
-            transform: scale(1);
-            padding: 20px;
-            margin-top: 25px;
-        }
-
-        .highlight {
-            color: #a78bfa;
+            font-size: 16px;
             font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            font-family: 'Rabar_015', sans-serif;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            transition: transform 0.2s;
+            direction: rtl !important;
+            unicode-bidi: isolate !important;
+        }
+
+        .error-msg { color: #f87171; font-size: 13px; margin-top: 12px; display: none; direction: rtl !important; unicode-bidi: isolate !important; line-height: 1.5; }
+        .success-hint { color: #34d399; font-size: 14px; margin-top: 12px; display: none; direction: rtl !important; unicode-bidi: isolate !important; line-height: 1.5; font-weight: bold;}
+
+        .spotify-card {
+            background: #121212 !important;
+            border: 1px solid #282828 !important;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8) !important;
+        }
+
+        .album-art-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .album-art {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3f2b96, #a8c0ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .track-title { font-size: 20px; font-weight: 700; margin: 0; color: #fff; text-align: center; }
+        .artist-name { font-size: 14px; color: #b3b3b3; margin: 5px 0 20px 0; text-align: center; }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .spotify-play-btn {
+            width: 56px;
+            height: 56px;
+            background: var(--spotify-green);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .spotify-play-btn svg { width: 24px; height: 24px; fill: #000000; }
+
+        .lyrics-viewport {
+            height: 160px;
+            overflow-y: hidden;
+            position: relative;
+            mask-image: linear-gradient(to bottom, transparent 0%, white 30%, white 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, white 30%, white 70%, transparent 100%);
+        }
+
+        .lyrics-wrapper {
+            position: absolute;
+            width: 100%;
+            top: 55px;
+            transition: transform 0.4s ease;
+        }
+
+        .lyric-line {
+            font-size: 15px;
+            color: #444;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-align: center;
+            direction: rtl !important;
+            unicode-bidi: isolate !important;
+        }
+
+        .lyric-line.active {
+            color: var(--spotify-green);
+            transform: scale(1.05);
+            font-size: 17px;
         }
     </style>
 </head>
 <body>
 
-    <script>
-        function createPetal() {
-            const petal = document.createElement('div');
-            petal.classList.add('petal');
-            petal.style.left = Math.random() * window.innerWidth + 'px';
-            const size = Math.random() * 10 + 5;
-            petal.style.width = size + 'px';
-            petal.style.height = size + 'px';
-            petal.style.animationDuration = Math.random() * 5 + 5 + 's';
-            document.body.appendChild(petal);
-            setTimeout(() => { petal.remove(); }, 10000);
-        }
-        setInterval(createPetal, 300);
-    </script>
+    <div id="roseContainer"></div>
 
-    <div class="container">
-        <h1>بەخێرهاتی سایە خان! 🛑🤍</h1>
-        <p class="subtitle">تێبینی: چوونە ژوورەوە لۆ تەمبەلەکان مەمنوعە! ئێرە بەتەنی لەبۆ زیرەکەکان دروستکرایە کە خەریچی دەرس خیندنن.</p>
+    <!-- ================= المرحلة الأولى: قفل الحماية ================= -->
+    <div class="page active" id="page1">
+        <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند پاڵەوان</span>
+        <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە ئەگەر تەمبەلی لێیگەڕێ و بڕۆ دەرێ</span>
+        <input type="text" id="passInput" placeholder="وشەی نهێنی بنووسە">
+        <button class="btn" onclick="checkPassword()">چوونە ژوورەوە</button>
+        <div class="error-msg" id="errorMsg">کۆدەکە هەڵەیە مۆبایلەکەت دوای پێنج چرکەی تر دەتەقێتەوە! 💣</div>
+        <div class="success-hint" id="hintMsg">بەسە تاقیکردنەوە دڵم سوتا بۆت! 😂 ئێستا ئەم کۆدەی خوارەوە بنووسە بۆ چوونە ژوورەوە:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
+    </div>
+
+    <!-- ================= المرحلة الثانية: الكلام الكوميدي والحلو ================= -->
+    <div class="page" id="page2">
+        <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">ئەلوو پاڵەوان</span>
+        <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
+            بەجدی پیرۆزە کۆتایی هاتنی عەزابی مەکتەب و فیزیا و ئەو هەموو دەرسە بێزارکەرانە دڵنیام ئێستا مێشکت وەک کۆمپیوتەرێکی کۆن وافە کە سوتابێت بەس ئاساییە گرنگ ئەوەیە ڕزگارت بوو <br><br>
+            ئەتو کچەکی زۆر بەهێزی ( سايه ) و شایەنی باشترینی ئێستا کاتی ئەوەیە هەموو کتێبەکان فڕێ دەی و کەیف بکەی دیارییەکی تایبەتم بۆ ئامادەکردووی لێرە پێت وایە چی بێت
+            
+            <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
+        </div>
+        <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="goToStage3()">
+            کلیک لێرە بکە شێتە
+        </button>
+    </div>
+
+    <!-- ================= المرحلة الثالثة: سبوتيفاي والـ Lyrics بالكامل ================= -->
+    <div class="page spotify-card" id="page3">
+        <div class="album-art-container">
+            <div class="album-art" id="albumArt">🎓</div>
+        </div>
         
-        <div class="countdown-title">⏳ کاتی ماوە لەبۆ کۆتایی هاتنی ئیمتیحانەکان و ئازادبوون:</div>
-        <div class="countdown-container">
-            <div class="time-box">
-                <span class="time-num" id="seconds">00</span>
-                <span class="time-label">چرکە</span>
-            </div>
-            <div class="time-box">
-                <span class="time-num" id="minutes">00</span>
-                <span class="time-label">دەقە</span>
-            </div>
-            <div class="time-box">
-                <span class="time-num" id="hours">00</span>
-                <span class="time-label">سەعات</span>
-            </div>
-            <div class="time-box">
-                <span class="time-num" id="days">00</span>
-                <span class="time-label">ڕۆژ</span>
-            </div>
+        <span class="track-title kurd-fix">سەفای ئازادی ( سايه )</span>
+        <span class="artist-name kurd-fix" style="color: #b3b3b3; font-size: 14px; margin-top: 5px; margin-bottom: 20px;">پەیامی سەرکەوتن</span>
+
+        <div class="player-controls">
+            <button class="spotify-play-btn" onclick="toggleAudio()">
+                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
         </div>
 
-        <button class="magic-btn" id="actionBtn" onclick="showMessage()">کلیکەک لێرە پێوە نێ پێش ئەوەی مۆبایلت بتەقێتەوە! 💣🛡️</button>
-        
-        <div class="hidden-message" id="messageBox">
-            ئەتو بەتەنێ نی، <span class="highlight">سايە</span>.. 🤍<br>
-            بەجدی تەئکیدم ئێستا زۆر ماندیی لەگەر دەرسەکانت، بەس بەتەنی دوو دەرست مایە لۆ ئاخیری و ناجیحبوونت و ڕزگاربوونت لەو هەموو عەزابە! ئەتو کچەكي زۆر بەهێزی زۆریش سيقەم پێتە لۆ خیندن و تەئکیدیشم دەرەجەیەکی زۆر باشیش دەینی. ئەمن دايم لێرەم لەبۆ ئەوەی جێت لێبگرم و پشتگیریت بکەم و لەگەرت بم کاتەک بێزار دەبی. ماندوو نەبیت و دایم سەرکەوتوو بی! 🌟
+        <div class="lyrics-viewport">
+            <div class="lyrics-wrapper" id="lyricsWrapper">
+                <div class="lyric-line" data-time="0">ئامادەی گۆرانییەکە دەستی پێکرد</div>
+                <div class="lyric-line" data-time="3">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                <div class="lyric-line" data-time="7">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                <div class="lyric-line" data-time="12">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                <div class="lyric-line" data-time="16">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                <div class="lyric-line" data-time="20">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
+                <div class="lyric-line" data-time="24">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
+                <div class="lyric-line" data-time="28">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
+                <div class="lyric-line" data-time="32">Bۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
+                <div class="lyric-line" data-time="36">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                <div class="lyric-line" data-time="40">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                <div class="lyric-line" data-time="44">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                <div class="lyric-line" data-time="48">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                <div class="lyric-line" data-time="52">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
+                <div class="lyric-line" data-time="57">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
+                <div class="lyric-line" data-time="62">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
+                <div class="lyric-line" data-time="67">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەین .</div>
+                <div class="lyric-line" data-time="72">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
+            </div>
         </div>
     </div>
 
+    <!-- تم التحديث لقراءة ملف الأغنية المباشر من مستودعك -->
+    <audio id="mainAudio" src="song.mp3"></audio>
+
     <script>
-        // التعديل الجديد: ينتهي الأربعاء 1 تموز الساعة 9 صباحاً
-        const targetDate = new Date("July 1, 2026 09:00:00").getTime();
-
-        const countdownInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
-
-            if (difference < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector(".countdown-container").innerHTML = "<b style='color:#10b981; font-size:18px;'>پیرۆزە! تاقیکردنەوەکان کۆتاییان هات 🎉</b>";
-            }
-        }, 1000);
-
-        function showMessage() {
-            const btn = document.getElementById('actionBtn');
-            const box = document.getElementById('messageBox');
-            btn.style.opacity = '0';
-            btn.style.transform = 'scale(0.9)';
-            setTimeout(() => {
-                btn.style.display = 'none';
-                box.classList.add('show');
-            }, 300);
+        function startRoseRain() {
+            const container = document.getElementById('roseContainer');
+            setInterval(() => {
+                const petal = document.createElement('div');
+                petal.classList.add('rose-petal');
+                petal.style.left = Math.random() * window.innerWidth + 'px';
+                const size = Math.random() * 15 + 10;
+                petal.style.width = size + 'px';
+                petal.style.height = size + 'px';
+                petal.style.animationDuration = Math.random() * 4 + 5 + 's';
+                container.appendChild(petal);
+                setTimeout(() => { petal.remove(); }, 8000);
+            }, 150);
         }
+
+        let attempts = 0;
+        function checkPassword() {
+            const password = document.getElementById('passInput').value.trim();
+            const error = document.getElementById('errorMsg');
+            const hint = document.getElementById('hintMsg');
+            
+            if (password === 'بژی حەمە') {
+                document.getElementById('page1').classList.remove('active');
+                document.getElementById('page2').classList.add('active');
+                return;
+            }
+            
+            attempts++;
+            
+            if (attempts < 3) {
+                hint.style.display = 'none';
+                error.style.display = 'block';
+                if(attempts === 1) error.innerHTML = "کۆدەکە هەڵەیە مۆبایلەکەت دوای پێنج چرکەی تر دەتەقێتەوە! 💣";
+                if(attempts === 2) error.innerHTML = "دیسان هەڵەیە؟ پێم وتیت چوونە ژوورەوە بۆ تەمبەلەکان نییە! 😡";
+            } else {
+                error.style.display = 'none';
+                hint.style.display = 'block';
+            }
+        }
+
+        function goToStage3() {
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+            startRoseRain();
+        }
+
+        const audio = document.getElementById('mainAudio');
+        const lyricLines = document.querySelectorAll('.lyric-line');
+        const lyricsWrapper = document.getElementById('lyricsWrapper');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            const icon = document.getElementById('playIcon');
+            isPlaying = !isPlaying;
+            if(isPlaying) {
+                audio.play();
+                icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+            } else {
+                audio.pause();
+                icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            }
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            let activeIndex = -1;
+
+            lyricLines.forEach((line, index) => {
+                const lineTime = parseFloat(line.getAttribute('data-time'));
+                if (currentTime >= lineTime) {
+                    activeIndex = index;
+                }
+            });
+
+            if (activeIndex !== -1) {
+                lyricLines.forEach(line => line.classList.remove('active'));
+                lyricLines[activeIndex].classList.add('active');
+                const offset = activeIndex * -35; 
+                lyricsWrapper.style.transform = `translateY(${offset}px)`;
+            }
+        });
     </script>
 </body>
 </html>
