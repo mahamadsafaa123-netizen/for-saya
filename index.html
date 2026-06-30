@@ -234,7 +234,7 @@
 
     <div id="roseContainer"></div>
 
-    <!-- ================= المرحلة الأولى: قفل الحماية ================= -->
+    <!-- ================= المرحلة الأولى ================= -->
     <div class="page active" id="page1">
         <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند سایە</span>
         <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە تکایە ئەگەر گرینگ نی لێیگەڕێ و بڕۆ دەرێ</span>
@@ -244,7 +244,7 @@
         <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا! 😂 ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
     </div>
 
-    <!-- ================= المرحلة الثانية: الكلام الكوميدي والحلو ================= -->
+    <!-- ================= المرحلة الثانية ================= -->
     <div class="page" id="page2">
         <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
         <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
@@ -258,7 +258,7 @@
         </button>
     </div>
 
-    <!-- ================= المرحلة الثالثة: سبوتيفاي والـ Lyrics بالكامل ================= -->
+    <!-- ================= المرحلة الثالثة ================= -->
     <div class="page spotify-card" id="page3">
         <div class="album-art-container">
             <div class="album-art" id="albumArt">🎓</div>
@@ -297,8 +297,8 @@
         </div>
     </div>
 
-    <!-- تم استخدام رابط جيت هاب المباشر والسريع لضمان عمل الأغنية دون مشاكل تسمية أو مسافات -->
-    <audio id="mainAudio" src="https://mahamadsafaa123-netizen.github.io/for-saya/zakaria-abdull%20saya.mp3" preload="auto"></audio>
+    <!-- تم استخدام رابط جيت هاب المباشر والسريع بعد سحب مسار الـ Raw لتجاوز مشكلة المسافات -->
+    <audio id="mainAudio" src="https://raw.githubusercontent.com/mahamadsafaa123-netizen/for-saya/main/zakaria-abdull%20saya.mp3" preload="auto"></audio>
 
     <script>
         function startRoseRain() {
@@ -333,7 +333,7 @@
             if (attempts < 3) {
                 hint.style.display = 'none';
                 error.style.display = 'block';
-                if(attempts === 1) error.innerHTML = "کۆدەکە کۆدەکە غەلەتە مۆبایلەکەت پاش پێنج چرکەی دی دەتەقێتەوە! 💣";
+                if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت پاش پێنج چرکەی دی دەتەقێتەوە! 💣";
                 if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ بۆ تەمبەلەکان نییە! 😡";
             } else {
                 error.style.display = 'none';
@@ -346,7 +346,6 @@
             document.getElementById('page3').classList.add('active');
             startRoseRain();
             
-            // محاولة تحميل الصوت مسبقاً لضمان التشغيل الفوري
             const audio = document.getElementById('mainAudio');
             audio.load();
         }
@@ -363,8 +362,7 @@
                     isPlaying = true;
                     icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 }).catch(err => {
-                    console.log("الرجاء الضغط مرة أخرى: حماية المتصفح منعت التشغيل التلقائي", err);
-                    // إعادة محاولة سريعة
+                    console.log("إعادة محاولة سريعة لتجاوز حماية المتصفح", err);
                     audio.play();
                     isPlaying = true;
                     icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
