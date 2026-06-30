@@ -234,7 +234,6 @@
 
     <div id="roseContainer"></div>
 
-    <!-- ================= المرحلة الأولى ================= -->
     <div class="page active" id="page1">
         <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند سایە</span>
         <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە تکایە ئەگەر گرینگ نی لێیگەڕێ و بڕۆ دەرێ</span>
@@ -244,7 +243,6 @@
         <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا! 😂 ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
     </div>
 
-    <!-- ================= المرحلة الثانية ================= -->
     <div class="page" id="page2">
         <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
         <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
@@ -258,7 +256,6 @@
         </button>
     </div>
 
-    <!-- ================= المرحلة الثالثة ================= -->
     <div class="page spotify-card" id="page3">
         <div class="album-art-container">
             <div class="album-art" id="albumArt">🎓</div>
@@ -297,8 +294,7 @@
         </div>
     </div>
 
-    <!-- لێرەدا بەستەرەکە چاککراوە بۆ بەکارهێنانی ناوی نوێی فایلەکە بە تەواوی -->
-    <audio id="mainAudio" src="https://raw.githubusercontent.com/mahamadsafaa123-netizen/for-saya/main/song.mp3" preload="auto"></audio>
+    <audio id="mainAudio" src="https://cdn.jsdelivr.net/gh/mahamadsafaa123-netizen/for-saya@main/song.mp3" preload="auto" crossorigin="anonymous"></audio>
 
     <script>
         function startRoseRain() {
@@ -325,11 +321,18 @@
             if (password === 'بژی حەمە') {
                 document.getElementById('page1').classList.remove('active');
                 document.getElementById('page2').classList.add('active');
+                
+                // تحضير الصوت مسبقاً فور إدخال كلمة المرور لتخطي قيود المتصفح الصارمة
+                const audio = document.getElementById('mainAudio');
+                audio.play().then(() => {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }).catch(e => console.log("Preloading active"));
+                
                 return;
             }
             
             attempts++;
-            
             if (attempts < 3) {
                 hint.style.display = 'none';
                 error.style.display = 'block';
@@ -346,8 +349,10 @@
             document.getElementById('page3').classList.add('active');
             startRoseRain();
             
-            const audio = document.getElementById('mainAudio');
-            audio.load();
+            // محاولة تشغيل تلقائي عند الانتقال للواجهة الثالثة
+            setTimeout(() => {
+                toggleAudio();
+            }, 300);
         }
 
         const audio = document.getElementById('mainAudio');
@@ -362,10 +367,13 @@
                     isPlaying = true;
                     icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 }).catch(err => {
-                    console.log("إعادة محاولة سريعة لتجاوز حماية المتصفح", err);
-                    audio.play();
-                    isPlaying = true;
-                    icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                    console.log("Error playing audio, trying direct source assignment:", err);
+                    // حل احتياطي سريع في حال حدوث أي مشكلة في الاستجابة المباشرة
+                    audio.src = "https://cdn.jsdelivr.net/gh/mahamadsafaa123-netizen/for-saya@main/song.mp3";
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                    });
                 });
             } else {
                 audio.pause();
