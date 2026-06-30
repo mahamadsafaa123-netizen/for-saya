@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سەکۆی سەرکەوتنی سايه 🎓✨</title>
+    <title>ڕۆژە خوشەکەی سايه 🎓✨</title>
     <style>
         @font-face {
             font-family: 'Rabar_015';
@@ -238,20 +238,20 @@
 
     <!-- ================= المرحلة الأولى: قفل الحماية ================= -->
     <div class="page active" id="page1">
-        <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند پاڵەوان</span>
-        <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە ئەگەر تەمبەلی لێیگەڕێ و بڕۆ دەرێ</span>
+        <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند سایە</span>
+        <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە تکایە ئەگەر گرینگ نی لێیگەڕێ و بڕۆ دەرێ</span>
         <input type="text" id="passInput" placeholder="وشەی نهێنی بنووسە">
-        <button class="btn" onclick="checkPassword()">چوونە ژوورەوە</button>
-        <div class="error-msg" id="errorMsg">کۆدەکە هەڵەیە مۆبایلەکەت دوای پێنج چرکەی تر دەتەقێتەوە! 💣</div>
-        <div class="success-hint" id="hintMsg">بەسە تاقیکردنەوە دڵم سوتا بۆت! 😂 ئێستا ئەم کۆدەی خوارەوە بنووسە بۆ چوونە ژوورەوە:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
+        <button class="btn" onclick="checkPassword()">چوونە ژۆرێ</button>
+        <div class="error-msg" id="errorMsg">کۆدەکە غەلەتە مۆبایلەکەت عادیە! 💣</div>
+        <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا! 😂 ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
     </div>
 
     <!-- ================= المرحلة الثانية: الكلام الكوميدي والحلو ================= -->
     <div class="page" id="page2">
-        <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">ئەلوو پاڵەوان</span>
+        <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
         <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
-            بەجدی پیرۆزە کۆتایی هاتنی عەزابی مەکتەب و فیزیا و ئەو هەموو دەرسە بێزارکەرانە دڵنیام ئێستا مێشکت وەک کۆمپیوتەرێکی کۆن وافە کە سوتابێت بەس ئاساییە گرنگ ئەوەیە ڕزگارت بوو <br><br>
-            ئەتو کچەکی زۆر بەهێزی ( سايه ) و شایەنی باشترینی ئێستا کاتی ئەوەیە هەموو کتێبەکان فڕێ دەی و کەیف بکەی دیارییەکی تایبەتم بۆ ئامادەکردووی لێرە پێت وایە چی بێت
+            بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتیادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
+            ئەتو کچەکی زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
             
             <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
         </div>
@@ -266,7 +266,7 @@
             <div class="album-art" id="albumArt">🎓</div>
         </div>
         
-        <span class="track-title kurd-fix">سەفای ئازادی ( سايه )</span>
+        <span class="track-title kurd-fix">Zakaria Abdulla - Saya</span>
         <span class="artist-name kurd-fix" style="color: #b3b3b3; font-size: 14px; margin-top: 5px; margin-bottom: 20px;">پەیامی سەرکەوتن</span>
 
         <div class="player-controls">
@@ -335,8 +335,8 @@
             if (attempts < 3) {
                 hint.style.display = 'none';
                 error.style.display = 'block';
-                if(attempts === 1) error.innerHTML = "کۆدەکە هەڵەیە مۆبایلەکەت دوای پێنج چرکەی تر دەتەقێتەوە! 💣";
-                if(attempts === 2) error.innerHTML = "دیسان هەڵەیە؟ پێم وتیت چوونە ژوورەوە بۆ تەمبەلەکان نییە! 😡";
+                if(attempts === 1) error.innerHTML = "کۆدەکە کۆدەکە غەلەتە مۆبایلەکەت پاش پێنج چرکەی دی دەتەقێتەوە! 💣";
+                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ بۆ تەمبەلەکان نییە! 😡";
             } else {
                 error.style.display = 'none';
                 hint.style.display = 'block';
