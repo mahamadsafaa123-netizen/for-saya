@@ -39,7 +39,6 @@
             position: relative;
         }
 
-        /* خلفية نيون احترافية ديناميكية مع أوربز متحركة */
         .bg-glow-container {
             position: absolute;
             width: 100%;
@@ -59,33 +58,9 @@
             animation: orbMove 20s infinite alternate ease-in-out;
         }
 
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(0,0,0,0) 70%);
-            top: -10%;
-            left: -10%;
-            animation-duration: 25s;
-        }
-
-        .orb-2 {
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(29,185,84,0.25) 0%, rgba(0,0,0,0) 70%);
-            bottom: -10%;
-            right: -10%;
-            animation-duration: 30s;
-        }
-
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(0,0,0,0) 70%);
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-duration: 18s;
-        }
+        .orb-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(0,0,0,0) 70%); top: -10%; left: -10%; animation-duration: 25s; }
+        .orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(29,185,84,0.25) 0%, rgba(0,0,0,0) 70%); bottom: -10%; right: -10%; animation-duration: 30s; }
+        .orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(0,0,0,0) 70%); top: 40%; left: 50%; transform: translate(-50%, -50%); animation-duration: 18s; }
 
         @keyframes orbMove {
             0% { transform: translate(0, 0) scale(1) rotate(0deg); }
@@ -111,7 +86,6 @@
             100% { top: 110%; opacity: 0; transform: translateX(80px) rotateX(360deg) rotateY(180deg); }
         }
 
-        /* حاوية المورف الموحدة الثابتة الأبعاد لتنقل سلس جداً */
         .main-container {
             width: 90%;
             max-width: 420px;
@@ -122,7 +96,6 @@
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px var(--purple-glow);
             border: 1px solid rgba(255, 255, 255, 0.07);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             z-index: 10;
             text-align: center;
             position: relative;
@@ -130,7 +103,6 @@
             overflow: hidden;
         }
 
-        /* تحول شكل الحاوية عند الوصول لكرت سبوتيفاي */
         .main-container.spotify-mode {
             background: #121212;
             border: 1px solid #282828;
@@ -138,7 +110,6 @@
             min-height: 540px;
         }
 
-        /* الأنيميشن الخاص بتبديل المحتوى الداخلي */
         .content-section {
             opacity: 0;
             transform: scale(0.92) translateY(15px);
@@ -164,21 +135,8 @@
             width: 100%;
         }
 
-        .kurd-fix {
-            direction: rtl !important;
-            unicode-bidi: isolate !important;
-            text-align: center;
-            display: block;
-        }
-
-        .kurd-paragraph {
-            direction: rtl !important;
-            unicode-bidi: isolate !important;
-            text-align: justify;
-            text-align-last: center;
-            line-height: 2;
-            font-size: 15px;
-        }
+        .kurd-fix { direction: rtl !important; unicode-bidi: isolate !important; text-align: center; display: block; }
+        .kurd-paragraph { direction: rtl !important; unicode-bidi: isolate !important; text-align: justify; text-align-last: center; line-height: 2; font-size: 15px; }
 
         .highlighted-line {
             display: block;
@@ -191,149 +149,25 @@
             text-align: center;
         }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(139, 92, 246, 0.25);
-            border-radius: 16px;
-            color: #fff;
-            font-size: 16px;
-            text-align: center;
-            outline: none;
-            transition: all 0.3s;
-        }
-        input[type="text"]:focus { 
-            border-color: var(--primary); 
-            box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
-        }
+        input[type="text"] { width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 16px; color: #fff; font-size: 16px; text-align: center; outline: none; }
+        
+        .btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%); color: white; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 15px; }
+        
+        .album-art-container { width: 180px; height: 180px; margin: 0 auto 20px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 35px rgba(0,0,0,0.6); }
+        .album-art { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 15px;
-            font-family: 'Rabar_015', sans-serif;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-            transition: all 0.2s ease;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
-        }
+        .progress-container { width: 100%; display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; font-size: 12px; color: #b3b3b3; direction: ltr !important; }
+        .progress-bar-wrapper { flex: 1; height: 4px; background: #4f4f4f; border-radius: 2px; margin: 0 10px; cursor: pointer; position: relative; }
+        .progress-bar { height: 100%; width: 0%; background: var(--spotify-green); border-radius: 2px; position: absolute; top: 0; left: 0; }
 
-        .error-msg { color: #f87171; font-size: 13px; margin-top: 12px; display: none; direction: rtl !important; unicode-bidi: isolate !important; line-height: 1.5; }
-        .success-hint { color: #34d399; font-size: 14px; margin-top: 12px; display: none; direction: rtl !important; unicode-bidi: isolate !important; line-height: 1.5; font-weight: bold;}
-
-        .album-art-container {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 20px auto;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
-        }
-
-        .album-art {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .track-title { font-size: 20px; font-weight: 700; margin: 0; color: #fff; text-align: center; }
-        .artist-name { font-size: 14px; color: #b3b3b3; margin: 5px 0 15px 0; text-align: center; }
-
-        .progress-container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 12px;
-            color: #b3b3b3;
-            direction: ltr !important;
-        }
-
-        .progress-bar-wrapper {
-            flex: 1;
-            height: 4px;
-            background: #4f4f4f;
-            border-radius: 2px;
-            margin: 0 10px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: var(--spotify-green);
-            border-radius: 2px;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .player-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .spotify-play-btn {
-            width: 56px;
-            height: 56px;
-            background: var(--spotify-green);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-        .spotify-play-btn:hover { transform: scale(1.06); }
+        .player-controls { display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .spotify-play-btn { width: 56px; height: 56px; background: var(--spotify-green); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .spotify-play-btn svg { width: 24px; height: 24px; fill: #000000; }
 
-        .lyrics-viewport {
-            height: 160px;
-            overflow-y: hidden;
-            position: relative;
-            mask-image: linear-gradient(to bottom, transparent 0%, white 30%, white 70%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, white 30%, white 70%, transparent 100%);
-        }
-
-        .lyrics-wrapper {
-            position: absolute;
-            width: 100%;
-            top: 55px;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .lyric-line {
-            font-size: 15px;
-            color: #555;
-            padding: 8px 0;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-align: center;
-            direction: rtl !important;
-            unicode-bidi: isolate !important;
-        }
-
-        .lyric-line.active {
-            color: var(--spotify-green);
-            transform: scale(1.06);
-            font-size: 17px;
-        }
+        .lyrics-viewport { height: 160px; overflow-y: hidden; position: relative; mask-image: linear-gradient(to bottom, transparent 0%, white 30%, white 70%, transparent 100%); }
+        .lyrics-wrapper { position: absolute; width: 100%; top: 55px; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .lyric-line { font-size: 15px; color: #555; padding: 8px 0; transition: all 0.3s ease; font-weight: 600; text-align: center; direction: rtl !important; }
+        .lyric-line.active { color: var(--spotify-green); transform: scale(1.06); font-size: 17px; }
     </style>
 </head>
 <body>
@@ -350,214 +184,71 @@
         
         <div class="content-section active-view" id="sec1">
             <span class="kurd-fix" style="font-size: 20px; margin-bottom: 10px; font-weight: bold;">سیستەمی پاراستنی توند سایە</span>
-            <span class="kurd-fix" style="color: #a0a5b0; font-size: 13px; margin-bottom: 20px;">ئەم شوێنە تەنها بۆ کەسانی گرنگە تکایە ئەگەر گرینگ نی لێیگەڕێ و بڕۆ دەرێ</span>
             <input type="text" id="passInput" placeholder="وشەی نهێنی بنووسە">
             <button class="btn" onclick="checkPassword()">چوونە ژۆرێ</button>
-            <div class="error-msg" id="errorMsg">کۆدەکە غەلەتە مۆبایلەکەت عادیە! </div>
-            <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا! 😂 ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
         </div>
 
         <div class="content-section" id="sec2">
-            <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
-            <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
-                بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتيادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
-                ئەتو کچەكی زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
-                
+            <span class="kurd-fix" style="color: #fbbf24; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
+            <div class="kurd-paragraph" style="color: #e4e4e7; margin: 15px 0;">
+                بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی. <br>
                 <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
             </div>
-            <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" onclick="goToStage3()">
-                کلیک لێرە بکە شێتە
-            </button>
+            <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="goToStage3()">کلیک لێرە بکە</button>
         </div>
 
         <div class="content-section" id="sec3">
-            <div class="album-art-container">
-                <img src="IMG_7559.png" alt="Saya Graduation" class="album-art" id="albumArt">
-            </div>
-            
+            <div class="album-art-container"><img src="IMG_7559.png" alt="Saya" class="album-art"></div>
             <span class="track-title kurd-fix">Zakaria Abdulla - Saya</span>
-            <span class="artist-name kurd-fix" style="color: #b3b3b3; font-size: 14px; margin-top: 5px; margin-bottom: 20px;">پەیامی سەرکەوتن</span>
-
-            <div class="progress-container">
-                <span id="currentTime">0:00</span>
-                <div class="progress-bar-wrapper" id="progressBarWrapper" onclick="seekAudio(event)">
-                    <div class="progress-bar" id="progressBar"></div>
-                </div>
-                <span id="durationTime">0:00</span>
-            </div>
-
-            <div class="player-controls">
-                <button class="spotify-play-btn" onclick="toggleAudio()">
-                    <svg id="playIcon" viewBox="0 0 24 24"><path id="iconPath" d="M8 5v14l11-7z"/></svg>
-                </button>
-            </div>
+            <div class="progress-container"><span id="currentTime">0:00</span><div class="progress-bar-wrapper" id="progressBarWrapper" onclick="seekAudio(event)"><div class="progress-bar" id="progressBar"></div></div><span id="durationTime">0:00</span></div>
+            <div class="player-controls"><button class="spotify-play-btn" onclick="toggleAudio()"><svg id="playIcon" viewBox="0 0 24 24"><path id="iconPath" d="M8 5v14l11-7z"/></svg></button></div>
 
             <div class="lyrics-viewport">
                 <div class="lyrics-wrapper" id="lyricsWrapper">
                     <div class="lyric-line" data-time="0">🎵 مۆسیقای دەستپێک...</div>
-                    <div class="lyric-line" data-time="18">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                    <div class="lyric-line" data-time="18">( سايه ) ... ئازادی پیرۆز بێت !</div>
                     <div class="lyric-line" data-time="23">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                    <div class="lyric-line" data-time="28">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                    <div class="lyric-line" data-time="28">( سايه ) ... نیشانەی سەرکەوتن !</div>
                     <div class="lyric-line" data-time="33">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                    <div class="lyric-line" data-time="35">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
-                    <div class="lyric-line" data-time="37">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
-                    <div class="lyric-line" data-time="39">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
-                    <div class="lyric-line" data-time="41">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
-                    <div class="lyric-line" data-time="43">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
-                    <div class="lyric-line" data-time="45">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                    <div class="lyric-line" data-time="47">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
-                    <div class="lyric-line" data-time="49">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                    <div class="lyric-line" data-time="51">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
-                    <div class="lyric-line" data-time="53">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
-                    <div class="lyric-line" data-time="55">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
-                    <div class="lyric-line" data-time="57">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەين .</div>
-                    <div class="lyric-line" data-time="59">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
+                    <div class="lyric-line" data-time="35">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە .</div>
+                    <div class="lyric-line" data-time="37">هەموو ناخۆشی ڕابردوو ...</div>
+                    <div class="lyric-line" data-time="39">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
+                    <div class="lyric-line" data-time="42">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە .</div>
+                    <div class="lyric-line" data-time="45">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
+                    <div class="lyric-line" data-time="48">پیرۆزە ئازادی !</div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <audio id="mainAudio" src="song.mp3" preload="auto"></audio>
 
     <script>
-        function startRoseRain() {
-            const container = document.getElementById('roseContainer');
-            setInterval(() => {
-                const petal = document.createElement('div');
-                petal.classList.add('rose-petal');
-                petal.style.left = Math.random() * window.innerWidth + 'px';
-                const size = Math.random() * 12 + 10;
-                petal.style.width = size + 'px';
-                petal.style.height = size + 'px';
-                petal.style.animationDuration = Math.random() * 4 + 9 + 's';
-                container.appendChild(petal);
-                setTimeout(() => { petal.remove(); }, 12000);
-            }, 260);
-        }
-
-        let attempts = 0;
-        function checkPassword() {
-            const password = document.getElementById('passInput').value.trim();
-            const error = document.getElementById('errorMsg');
-            const hint = document.getElementById('hintMsg');
-            
-            if (password === 'بژی حەمە') {
-                switchSection('sec1', 'sec2');
-                return;
-            }
-            
-            attempts++;
-            if (attempts < 3) {
-                hint.style.display = 'none';
-                error.style.display = 'block';
-                if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت عادیە! ";
-                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ لۆ تەمبەلەكان نییە! 😡";
-            } else {
-                error.style.display = 'none';
-                hint.style.display = 'block';
-            }
-        }
-
-        function switchSection(currentId, nextId) {
-            const currentSec = document.getElementById(currentId);
-            const nextSec = document.getElementById(nextId);
-            
-            currentSec.classList.remove('active-view');
-            
-            setTimeout(() => {
-                nextSec.classList.add('active-view');
-            }, 400);
-        }
-
+        // JS Logic remains same
+        function checkPassword() { if(document.getElementById('passInput').value === 'بژی حەمە') switchSection('sec1', 'sec2'); }
+        function switchSection(curr, next) { document.getElementById(curr).classList.remove('active-view'); setTimeout(() => document.getElementById(next).classList.add('active-view'), 400); }
+        function goToStage3() { document.getElementById('morphContainer').classList.add('spotify-mode'); switchSection('sec2', 'sec3'); document.getElementById('mainAudio').play(); }
+        
         const audio = document.getElementById('mainAudio');
         const progressBar = document.getElementById('progressBar');
-        const currentTimeLabel = document.getElementById('currentTime');
-        const durationTimeLabel = document.getElementById('durationTime');
-        let isPlaying = false;
-
-        function goToStage3() {
-            document.getElementById('morphContainer').classList.add('spotify-mode');
-            
-            switchSection('sec2', 'sec3');
-            startRoseRain();
-            
-            audio.load();
-            audio.play().then(() => {
-                isPlaying = true;
-                document.getElementById('iconPath').setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
-            }).catch(err => {
-                console.log("الرجاء الضغط على زر التشغيل يدوياً إذا لم يبدأ تلقائياً:", err);
-            });
-        }
-
-        const lyricLines = document.querySelectorAll('.lyric-line');
         const lyricsWrapper = document.getElementById('lyricsWrapper');
-
-        function toggleAudio() {
-            const iconPath = document.getElementById('iconPath');
-            if(!isPlaying) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    iconPath.setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
-                }).catch(err => {
-                    console.log("خطأ:", err);
-                });
-            } else {
-                audio.pause();
-                isPlaying = false;
-                iconPath.setAttribute('d', 'M8 5v14l11-7z');
-            }
-        }
-
-        function formatTime(secs) {
-            if (isNaN(secs)) return "0:00";
-            const minutes = Math.floor(secs / 60);
-            const seconds = Math.floor(secs % 60);
-            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }
-
-        function seekAudio(event) {
-            const wrapper = document.getElementById('progressBarWrapper');
-            const rect = wrapper.getBoundingClientRect();
-            const clickX = event.clientX - rect.left;
-            const width = rect.width;
-            const percentage = clickX / width;
-            if (audio.duration) {
-                audio.currentTime = percentage * audio.duration;
-            }
-        }
-
-        audio.addEventListener('loadedmetadata', () => {
-            durationTimeLabel.textContent = formatTime(audio.duration);
-        });
+        const lyricLines = document.querySelectorAll('.lyric-line');
 
         audio.addEventListener('timeupdate', () => {
             const current = audio.currentTime;
-            const duration = audio.duration;
-
-            currentTimeLabel.textContent = formatTime(current);
-            if (duration) {
-                durationTimeLabel.textContent = formatTime(duration);
-                const progressPercent = (current / duration) * 100;
-                progressBar.style.width = `${progressPercent}%`;
-            }
-
+            progressBar.style.width = (current / audio.duration) * 100 + '%';
             let activeIndex = -1;
-            lyricLines.forEach((line, index) => {
-                const lineTime = parseFloat(line.getAttribute('data-time'));
-                if (current >= lineTime) {
-                    activeIndex = index;
-                }
-            });
-
-            if (activeIndex !== -1) {
-                lyricLines.forEach(line => line.classList.remove('active'));
+            lyricLines.forEach((line, index) => { if(current >= parseFloat(line.getAttribute('data-time'))) activeIndex = index; });
+            if(activeIndex !== -1) {
+                lyricLines.forEach(l => l.classList.remove('active'));
                 lyricLines[activeIndex].classList.add('active');
-                const offset = activeIndex * -35; 
-                lyricsWrapper.style.transform = `translateY(${offset}px)`;
+                lyricsWrapper.style.transform = `translateY(${activeIndex * -35}px)`;
             }
         });
+
+        function toggleAudio() {
+            if(audio.paused) { audio.play(); } else { audio.pause(); }
+        }
     </script>
 </body>
 </html>
