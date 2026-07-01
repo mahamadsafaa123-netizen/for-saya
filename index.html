@@ -364,7 +364,7 @@
         <div class="content-section" id="sec2">
             <span class="kurd-fix" style="color: #fbbf24; margin-top: 0; font-size: 22px; font-weight: bold;">سلاو لەو شێرە </span>
             <div class="kurd-paragraph" style="color: #e4e4e7; margin-bottom: 10px; margin-top: 15px;">
-                بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتیادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
+                بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتيادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
                 ئەتو کچەكي زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
                 
                 <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
@@ -377,7 +377,8 @@
         <!-- القسم الثالث: واجهة مشغل الموسيقى والمزامنة المحدثة بدقة -->
         <div class="content-section" id="sec3">
             <div class="album-art-container">
-                <img src="cover.PNG" alt="Saya Graduation" class="album-art" id="albumArt">
+                <!-- تم تعديل هذا السطر لتجربة الصيغتين تلقائياً -->
+                <img src="cover.png" onerror="this.onerror=null; this.src='cover.PNG';" alt="Saya Graduation" class="album-art" id="albumArt">
             </div>
             
             <span class="track-title kurd-fix">Zakaria Abdulla - Saya</span>
@@ -399,7 +400,6 @@
 
             <div class="lyrics-viewport">
                 <div class="lyrics-wrapper" id="lyricsWrapper">
-                    <!-- تم ضبط التوقيت لتصل الجملة المطلوبة عند الثانية 33، والباقي يتقدم بثانيتين بانتظام -->
                     <div class="lyric-line" data-time="0">🎵 مۆسیقای دەستپێک...</div>
                     <div class="lyric-line" data-time="18">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
                     <div class="lyric-line" data-time="23">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
@@ -457,8 +457,8 @@
             if (attempts < 3) {
                 hint.style.display = 'none';
                 error.style.display = 'block';
-                if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت عادیە! ";
-                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ لۆ تەمبەلەكان نییە! 😡";
+                if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت پاش پێنج چرکەی دی دەتەقێتەوە! 💣";
+                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ بۆ تەمبەلەكان نییە! 😡";
             } else {
                 error.style.display = 'none';
                 hint.style.display = 'block';
