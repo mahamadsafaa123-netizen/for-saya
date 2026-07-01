@@ -249,7 +249,7 @@
             بەجدی پیرۆزە خلاسبوونی عەزابی مەکتەب و کوردی و ئینگلیزی و ئەو هەموو دەرسە ئیزعاجانە تەکیدم ئێستا مێشکت ماندیە زۆر بەس ئیحتیادیە گرینگ ئەوەیە ڕزگارت بوو <br><br>
             ئتو کچەکی زۆر باشبوی لۆمن ( سايه ) و شایەنی باشترینی ئێستا وەختی ئەوەیە هەموو کتابەکان فڕێ دەی و دری خۆت خۆش بکەی...
             
-            <span class="highlighted-line">وەرە چێوە دەرۆی هێشتان مایە</span>
+            <span class="highlighted-line">وەرە چێوة دەرۆی هێشتان مایە</span>
         </div>
         <button class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" onclick="goToStage3()">
             کلیک لێرە بکە شێتە
@@ -266,7 +266,7 @@
 
         <div class="player-controls">
             <button class="spotify-play-btn" onclick="toggleAudio()">
-                <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="playIcon" viewBox="0 0 24 24"><path id="iconPath" d="M8 5v14l11-7z"/></svg>
             </button>
         </div>
 
@@ -294,7 +294,8 @@
         </div>
     </div>
 
-    <audio id="mainAudio" src="https://raw.githubusercontent.com/mahamadsafaa123-netizen/for-saya/main/song.mp3" preload="auto" crossorigin="anonymous"></audio>
+    <!-- تم تعديل المسار ليكون محلياً ومباشراً للاستدعاء من نفس مستودع GitHub بنجاح ودون قيود -->
+    <audio id="mainAudio" src="song.mp3" preload="auto"></audio>
 
     <script>
         function startRoseRain() {
@@ -336,34 +337,40 @@
             }
         }
 
+        const audio = document.getElementById('mainAudio');
+        let isPlaying = false;
+
         function goToStage3() {
             document.getElementById('page2').classList.remove('active');
             document.getElementById('page3').classList.add('active');
             startRoseRain();
             
-            // تهيئة الصوت فور الانتقال للواجهة الثالثة لضمان الاستجابة السريعة
-            const audio = document.getElementById('mainAudio');
+            // تشغيل تلقائي ذكي بمجرد ضغط المستخدم على زر الانتقال للمرحلة الثالثة
             audio.load();
+            audio.play().then(() => {
+                isPlaying = true;
+                document.getElementById('iconPath').setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
+            }).catch(err => {
+                console.log("المتصفح منع التشغيل التلقائي المباشر، سيعمل عند الضغط على زر مشغل Spotify:", err);
+            });
         }
 
-        const audio = document.getElementById('mainAudio');
         const lyricLines = document.querySelectorAll('.lyric-line');
         const lyricsWrapper = document.getElementById('lyricsWrapper');
-        let isPlaying = false;
 
         function toggleAudio() {
-            const icon = document.getElementById('playIcon');
+            const iconPath = document.getElementById('iconPath');
             if(!isPlaying) {
                 audio.play().then(() => {
                     isPlaying = true;
-                    icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                    iconPath.setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
                 }).catch(err => {
-                    console.log("الرجاء الضغط مرة أخرى، المتصفح يطلب تفاعلاً إضافياً:", err);
+                    console.log("خطأ في التشغيل:", err);
                 });
             } else {
                 audio.pause();
                 isPlaying = false;
-                icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+                iconPath.setAttribute('d', 'M8 5v14l11-7z');
             }
         }
 
