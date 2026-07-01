@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'Rabar_015';
-            src: url('Rabar_015.ttf') format('truetype'); 
+            src: url('Rabar_015.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -16,7 +16,6 @@
             --primary: #8b5cf6;
             --spotify-green: #1db954;
             --bg-dark: #050508;
-            --purple-glow: rgba(139, 92, 246, 0.15);
         }
 
         body {
@@ -29,17 +28,6 @@
             justify-content: center;
             min-height: 100vh;
             overflow: hidden;
-            position: relative;
-        }
-
-        .bg-glow-container { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; filter: blur(80px); }
-        .orb { position: absolute; border-radius: 50%; mix-blend-mode: screen; animation: orbMove 20s infinite alternate ease-in-out; }
-        .orb-1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(0,0,0,0) 70%); top: -10%; left: -10%; }
-        .orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(29,185,84,0.25) 0%, rgba(0,0,0,0) 70%); bottom: -10%; right: -10%; }
-
-        @keyframes orbMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, -40px); }
         }
 
         .main-container {
@@ -48,15 +36,12 @@
             background: rgba(255, 255, 255, 0.05);
             padding: 35px;
             border-radius: 28px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
-            z-index: 10;
             text-align: center;
         }
 
         .main-container.spotify-mode { background: #121212; }
-
         .content-section { display: none; }
         .content-section.active-view { display: block; }
 
@@ -74,10 +59,7 @@
 </head>
 <body>
 
-    <div class="bg-glow-container"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-
     <div class="main-container" id="morphContainer">
-        
         <div class="content-section active-view" id="sec1">
             <h3>سیستەمی پاراستنی توند</h3>
             <input type="text" id="passInput" placeholder="وشەی نهێنی بنووسە">
@@ -93,7 +75,7 @@
             <div class="album-art-container">
                 <img src="cover.PNG" onerror="this.onerror=null; this.src='cover.png';" alt="Saya" class="album-art">
             </div>
-            <button class="btn" onclick="toggleAudio()">تشغيل/إيقاف الأغنية</button>
+            <button class="btn" onclick="toggleAudio()">تشغيل الأغنية</button>
             <div class="lyrics-viewport">
                 <div class="lyrics-wrapper" id="lyricsWrapper">
                     <div class="lyric-line" data-time="0">🎵 مۆسیقای دەستپێک...</div>
@@ -102,7 +84,6 @@
                     <div class="lyric-line" data-time="28">( سايه ) ... نیشانەی سەرکەوتن !</div>
                     <div class="lyric-line" data-time="32">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
                     <div class="lyric-line" data-time="33.5">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە .</div>
-                    <div class="lyric-line" data-time="59">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
                 </div>
             </div>
         </div>
