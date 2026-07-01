@@ -40,7 +40,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* تعديل حركة الورد لتصبح هادئة وبطيئة جداً */
         .rose-petal {
             position: absolute;
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
@@ -49,7 +48,7 @@
             z-index: 1;
             opacity: 0;
             transform-style: preserve-3d;
-            animation: fallAndRotate 14s infinite linear; /* تم إبطاء الحركة هنا */
+            animation: fallAndRotate 14s infinite linear;
         }
 
         @keyframes fallAndRotate {
@@ -178,7 +177,6 @@
         .track-title { font-size: 20px; font-weight: 700; margin: 0; color: #fff; text-align: center; }
         .artist-name { font-size: 14px; color: #b3b3b3; margin: 5px 0 15px 0; text-align: center; }
 
-        /* إضافة وتصميم شريط التحكم بالوقت */
         .progress-container {
             width: 100%;
             display: flex;
@@ -187,7 +185,7 @@
             margin-bottom: 15px;
             font-size: 12px;
             color: #b3b3b3;
-            direction: ltr !important; /* لجعل العداد من اليسار لليمين */
+            direction: ltr !important;
         }
 
         .progress-bar-wrapper {
@@ -313,24 +311,25 @@
 
         <div class="lyrics-viewport">
             <div class="lyrics-wrapper" id="lyricsWrapper">
-                <div class="lyric-line" data-time="0">ئامادەی گۆرانییەکە دەستی پێکرد</div>
-                <div class="lyric-line" data-time="3">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
-                <div class="lyric-line" data-time="7">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                <div class="lyric-line" data-time="12">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
-                <div class="lyric-line" data-time="16">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                <div class="lyric-line" data-time="20">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
-                <div class="lyric-line" data-time="24">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
-                <div class="lyric-line" data-time="28">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
-                <div class="lyric-line" data-time="32">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
-                <div class="lyric-line" data-time="36">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
-                <div class="lyric-line" data-time="40">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                <div class="lyric-line" data-time="44">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
-                <div class="lyric-line" data-time="48">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                <div class="lyric-line" data-time="52">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
-                <div class="lyric-line" data-time="57">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
-                <div class="lyric-line" data-time="62">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
-                <div class="lyric-line" data-time="67">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەین .</div>
-                <div class="lyric-line" data-time="72">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
+                <!-- تم تعديل التوقيت (data-time) هنا ليتناسب تماماً مع الموسيقى الابتدائية للأغنية -->
+                <div class="lyric-line" data-time="0">🎵 مۆسیقای دەستپێک...</div>
+                <div class="lyric-line" data-time="10">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                <div class="lyric-line" data-time="16">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                <div class="lyric-line" data-time="22">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                <div class="lyric-line" data-time="28">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                <div class="lyric-line" data-time="34">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
+                <div class="lyric-line" data-time="40">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
+                <div class="lyric-line" data-time="46">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
+                <div class="lyric-line" data-time="52">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
+                <div class="lyric-line" data-time="58">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                <div class="lyric-line" data-time="64">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                <div class="lyric-line" data-time="70">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                <div class="lyric-line" data-time="76">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                <div class="lyric-line" data-time="82">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
+                <div class="lyric-line" data-time="88">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
+                <div class="lyric-line" data-time="94">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
+                <div class="lyric-line" data-time="100">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەین .</div>
+                <div class="lyric-line" data-time="106">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
             </div>
         </div>
     </div>
@@ -338,20 +337,19 @@
     <audio id="mainAudio" src="song.mp3" preload="auto"></audio>
 
     <script>
-        // تعديل تساقط الورود لتكون هادئة وبطيئة ومتباعدة
         function startRoseRain() {
             const container = document.getElementById('roseContainer');
             setInterval(() => {
                 const petal = document.createElement('div');
                 petal.classList.add('rose-petal');
                 petal.style.left = Math.random() * window.innerWidth + 'px';
-                const size = Math.random() * 12 + 10; // حجم ناعم ومتناسق
+                const size = Math.random() * 12 + 10;
                 petal.style.width = size + 'px';
                 petal.style.height = size + 'px';
-                petal.style.animationDuration = Math.random() * 5 + 11 + 's'; // بطيئة جداً بين 11 لـ 16 ثانية
+                petal.style.animationDuration = Math.random() * 5 + 11 + 's';
                 container.appendChild(petal);
                 setTimeout(() => { petal.remove(); }, 14000);
-            }, 300); // زيادة المدة الزمنية بين ظهور الورود لتبدو هادئة وليست مزدحمة
+            }, 300);
         }
 
         let attempts = 0;
@@ -417,7 +415,6 @@
             }
         }
 
-        // تحويل الثواني إلى صيغة وقت احترافية مخصصة 0:00
         function formatTime(secs) {
             if (isNaN(secs)) return "0:00";
             const minutes = Math.floor(secs / 60);
@@ -425,7 +422,6 @@
             return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
 
-        // دالة تتيح لساية الضغط على أي جزء من الشريط لتغيير وقت الأغنية والكلمات
         function seekAudio(event) {
             const wrapper = document.getElementById('progressBarWrapper');
             const rect = wrapper.getBoundingClientRect();
@@ -445,7 +441,6 @@
             const current = audio.currentTime;
             const duration = audio.duration;
 
-            // تحديث شريط التقدم والعدادات
             currentTimeLabel.textContent = formatTime(current);
             if (duration) {
                 durationTimeLabel.textContent = formatTime(duration);
@@ -453,7 +448,6 @@
                 progressBar.style.width = `${progressPercent}%`;
             }
 
-            // مزامنة دقيقة ومحسنة للكلمات مع التقديم والتأخير
             let activeIndex = -1;
             lyricLines.forEach((line, index) => {
                 const lineTime = parseFloat(line.getAttribute('data-time'));
