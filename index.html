@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ڕۆژە خوشەکەی سايه 🎓✨</title>
+    <title>ڕۆژە خوشەکەی سايه 🎓</title>
     <style>
         @font-face {
             font-family: 'Rabar_015';
@@ -354,7 +354,7 @@
             <input type="text" id="passInput" placeholder="وشەی نهێنی بنووسە">
             <button class="btn" onclick="checkPassword()">چوونە ژۆرێ</button>
             <div class="error-msg" id="errorMsg">کۆدەکە غەلەتە مۆبایلەکەت عادیە! </div>
-            <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا! 😂 ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">بژی حەمە</span></div>
+            <div class="success-hint" id="hintMsg">دەی بەسە زگم پێت سووتا!  ئێستا ئەو کۆدەی خوارێ بنووسە لۆ چوونە ژۆرێ:<br><span style="color:#fbbf24; font-size:18px; display:block; margin-top:5px; direction: rtl !important; unicode-bidi: isolate !important;">دلت گەورە بی</span></div>
         </div>
 
         <div class="content-section" id="sec2">
@@ -442,7 +442,7 @@
             const error = document.getElementById('errorMsg');
             const hint = document.getElementById('hintMsg');
             
-            if (password === 'بژی حەمە') {
+            if (password === 'دلت گەورە بی') {
                 switchSection('sec1', 'sec2');
                 return;
             }
@@ -452,7 +452,7 @@
                 hint.style.display = 'none';
                 error.style.display = 'block';
                 if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت عادیە! ";
-                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ لۆ تەمبەلەكان نییە! 😡";
+                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ جوان فکر کەوە! ";
             } else {
                 error.style.display = 'none';
                 hint.style.display = 'block';
