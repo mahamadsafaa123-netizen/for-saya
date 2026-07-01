@@ -40,6 +40,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* تعديل حركة الورد لتصبح هادئة وبطيئة جداً */
         .rose-petal {
             position: absolute;
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
@@ -48,14 +49,14 @@
             z-index: 1;
             opacity: 0;
             transform-style: preserve-3d;
-            animation: fallAndRotate 8s infinite linear;
+            animation: fallAndRotate 14s infinite linear; /* تم إبطاء الحركة هنا */
         }
 
         @keyframes fallAndRotate {
             0% { top: -10%; opacity: 0; transform: translateX(0) rotateX(0deg) rotateY(0deg); }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { top: 110%; opacity: 0; transform: translateX(150px) rotateX(360deg) rotateY(360deg); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { top: 110%; opacity: 0; transform: translateX(100px) rotateX(360deg) rotateY(180deg); }
         }
 
         .page {
@@ -175,13 +176,45 @@
         }
 
         .track-title { font-size: 20px; font-weight: 700; margin: 0; color: #fff; text-align: center; }
-        .artist-name { font-size: 14px; color: #b3b3b3; margin: 5px 0 20px 0; text-align: center; }
+        .artist-name { font-size: 14px; color: #b3b3b3; margin: 5px 0 15px 0; text-align: center; }
+
+        /* إضافة وتصميم شريط التحكم بالوقت */
+        .progress-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #b3b3b3;
+            direction: ltr !important; /* لجعل العداد من اليسار لليمين */
+        }
+
+        .progress-bar-wrapper {
+            flex: 1;
+            height: 4px;
+            background: #4f4f4f;
+            border-radius: 2px;
+            margin: 0 10px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--spotify-green);
+            border-radius: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
         .player-controls {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .spotify-play-btn {
@@ -264,6 +297,14 @@
         <span class="track-title kurd-fix">Zakaria Abdulla - Saya</span>
         <span class="artist-name kurd-fix" style="color: #b3b3b3; font-size: 14px; margin-top: 5px; margin-bottom: 20px;">پەیامی سەرکەوتن</span>
 
+        <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar-wrapper" id="progressBarWrapper" onclick="seekAudio(event)">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <span id="durationTime">0:00</span>
+        </div>
+
         <div class="player-controls">
             <button class="spotify-play-btn" onclick="toggleAudio()">
                 <svg id="playIcon" viewBox="0 0 24 24"><path id="iconPath" d="M8 5v14l11-7z"/></svg>
@@ -294,23 +335,23 @@
         </div>
     </div>
 
-    <!-- تم تعديل المسار ليكون محلياً ومباشراً للاستدعاء من نفس مستودع GitHub بنجاح ودون قيود -->
     <audio id="mainAudio" src="song.mp3" preload="auto"></audio>
 
     <script>
+        // تعديل تساقط الورود لتكون هادئة وبطيئة ومتباعدة
         function startRoseRain() {
             const container = document.getElementById('roseContainer');
             setInterval(() => {
                 const petal = document.createElement('div');
                 petal.classList.add('rose-petal');
                 petal.style.left = Math.random() * window.innerWidth + 'px';
-                const size = Math.random() * 15 + 10;
+                const size = Math.random() * 12 + 10; // حجم ناعم ومتناسق
                 petal.style.width = size + 'px';
                 petal.style.height = size + 'px';
-                petal.style.animationDuration = Math.random() * 4 + 5 + 's';
+                petal.style.animationDuration = Math.random() * 5 + 11 + 's'; // بطيئة جداً بين 11 لـ 16 ثانية
                 container.appendChild(petal);
-                setTimeout(() => { petal.remove(); }, 8000);
-            }, 150);
+                setTimeout(() => { petal.remove(); }, 14000);
+            }, 300); // زيادة المدة الزمنية بين ظهور الورود لتبدو هادئة وليست مزدحمة
         }
 
         let attempts = 0;
@@ -330,7 +371,7 @@
                 hint.style.display = 'none';
                 error.style.display = 'block';
                 if(attempts === 1) error.innerHTML = "کۆدەکە غەلەتە مۆبایلەکەت پاش پێنج چرکەی دی دەتەقێتەوە! 💣";
-                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ بۆ تەمبەلەکان نییە! 😡";
+                if(attempts === 2) error.innerHTML = "دیسان کۆدەکە غەلەتە؟ پێم گۆتی چوونە ژۆرێ بۆ تەمبەلەكان نییە! 😡";
             } else {
                 error.style.display = 'none';
                 hint.style.display = 'block';
@@ -338,6 +379,9 @@
         }
 
         const audio = document.getElementById('mainAudio');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeLabel = document.getElementById('currentTime');
+        const durationTimeLabel = document.getElementById('durationTime');
         let isPlaying = false;
 
         function goToStage3() {
@@ -345,13 +389,12 @@
             document.getElementById('page3').classList.add('active');
             startRoseRain();
             
-            // تشغيل تلقائي ذكي بمجرد ضغط المستخدم على زر الانتقال للمرحلة الثالثة
             audio.load();
             audio.play().then(() => {
                 isPlaying = true;
                 document.getElementById('iconPath').setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
             }).catch(err => {
-                console.log("المتصفح منع التشغيل التلقائي المباشر، سيعمل عند الضغط على زر مشغل Spotify:", err);
+                console.log("الرجاء الضغط على زر التشغيل يدوياً إذا لم يبدأ تلقائياً:", err);
             });
         }
 
@@ -365,7 +408,7 @@
                     isPlaying = true;
                     iconPath.setAttribute('d', 'M6 19h4V5H6v14zm8-14v14h4V5h-4z');
                 }).catch(err => {
-                    console.log("خطأ في التشغيل:", err);
+                    console.log("خطأ:", err);
                 });
             } else {
                 audio.pause();
@@ -374,13 +417,47 @@
             }
         }
 
-        audio.addEventListener('timeupdate', () => {
-            const currentTime = audio.currentTime;
-            let activeIndex = -1;
+        // تحويل الثواني إلى صيغة وقت احترافية مخصصة 0:00
+        function formatTime(secs) {
+            if (isNaN(secs)) return "0:00";
+            const minutes = Math.floor(secs / 60);
+            const seconds = Math.floor(secs % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
 
+        // دالة تتيح لساية الضغط على أي جزء من الشريط لتغيير وقت الأغنية والكلمات
+        function seekAudio(event) {
+            const wrapper = document.getElementById('progressBarWrapper');
+            const rect = wrapper.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const width = rect.width;
+            const percentage = clickX / width;
+            if (audio.duration) {
+                audio.currentTime = percentage * audio.duration;
+            }
+        }
+
+        audio.addEventListener('loadedmetadata', () => {
+            durationTimeLabel.textContent = formatTime(audio.duration);
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const current = audio.currentTime;
+            const duration = audio.duration;
+
+            // تحديث شريط التقدم والعدادات
+            currentTimeLabel.textContent = formatTime(current);
+            if (duration) {
+                durationTimeLabel.textContent = formatTime(duration);
+                const progressPercent = (current / duration) * 100;
+                progressBar.style.width = `${progressPercent}%`;
+            }
+
+            // مزامنة دقيقة ومحسنة للكلمات مع التقديم والتأخير
+            let activeIndex = -1;
             lyricLines.forEach((line, index) => {
                 const lineTime = parseFloat(line.getAttribute('data-time'));
-                if (currentTime >= lineTime) {
+                if (current >= lineTime) {
                     activeIndex = index;
                 }
             });
