@@ -243,11 +243,8 @@
         .album-art {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #3f2b96, #a8c0ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
+            object-fit: cover;
+            display: block;
         }
 
         .track-title { font-size: 20px; font-weight: 700; margin: 0; color: #fff; text-align: center; }
@@ -377,10 +374,11 @@
             </button>
         </div>
 
-        <!-- القسم الثالث: واجهة مشغل الموسيقى مع المزامنة بفارق ثانيتين -->
+        <!-- القسم الثالث: واجهة مشغل الموسيقى مع المزامنة بفارق 3 ثوانٍ والغلاف الاحترافي الجديد -->
         <div class="content-section" id="sec3">
             <div class="album-art-container">
-                <div class="album-art" id="albumArt">🎓</div>
+                <!-- تم ربط الصورة الاحترافية المرفقة image_4.png كغلاف ألبوم رسمي للمشغل -->
+                <img src="image_4.png" alt="Saya Graduation" class="album-art" id="albumArt">
             </div>
             
             <span class="track-title kurd-fix">Zakaria Abdulla - Saya</span>
@@ -402,25 +400,25 @@
 
             <div class="lyrics-viewport">
                 <div class="lyrics-wrapper" id="lyricsWrapper">
-                    <!-- تم ضبط الفاصل الزمني ليصبح ثانيتين بين كل سطر وسطر بدقة متناهية -->
+                    <!-- تم ضبط الفاصل الزمني ليصبح 3 ثوانٍ بين كل سطر وسطر بدقة متناهية -->
                     <div class="lyric-line" data-time="0">🎵 مۆسیقای دەستپێک...</div>
                     <div class="lyric-line" data-time="18">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
-                    <div class="lyric-line" data-time="20">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                    <div class="lyric-line" data-time="22">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
-                    <div class="lyric-line" data-time="24">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                    <div class="lyric-line" data-time="26">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
-                    <div class="lyric-line" data-time="28">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
-                    <div class="lyric-line" data-time="30">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
-                    <div class="lyric-line" data-time="32">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
-                    <div class="lyric-line" data-time="34">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
-                    <div class="lyric-line" data-time="36">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
-                    <div class="lyric-line" data-time="38">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
-                    <div class="lyric-line" data-time="40">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
-                    <div class="lyric-line" data-time="42">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
-                    <div class="lyric-line" data-time="44">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
-                    <div class="lyric-line" data-time="46">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
-                    <div class="lyric-line" data-time="48">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەين .</div>
-                    <div class="lyric-line" data-time="50">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
+                    <div class="lyric-line" data-time="21">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                    <div class="lyric-line" data-time="24">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                    <div class="lyric-line" data-time="27">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                    <div class="lyric-line" data-time="30">ئەمڕۆ ڕۆژی تۆیە ، کاتی شایی و پشووە ،</div>
+                    <div class="lyric-line" data-time="33">هەموو ناخۆشی ڕابردوو ، ئیتر تەواو بوو و ڕۆیشت .</div>
+                    <div class="lyric-line" data-time="36">مێشکت ئارام بکەرەوە ، پێبکەنە دڵخۆش بە ،</div>
+                    <div class="lyric-line" data-time="39">بۆ پێشەوە هەنگاو بنێ ، داهاتوویەکی ڕوونە .</div>
+                    <div class="lyric-line" data-time="42">( سايه ) ... ( سايه ) ... ئازادی پیرۆز بێت !</div>
+                    <div class="lyric-line" data-time="45">کۆتایی هات ماندوێتی ، کاتی کەیف و سەفایە .</div>
+                    <div class="lyric-line" data-time="48">( سايه ) ... ( سايه ) ... نیشانەی سەرکەوتن !</div>
+                    <div class="lyric-line" data-time="51">پەڕتووکەکان دابخە ، خەم و بێتاقەتی بڕوا .</div>
+                    <div class="lyric-line" data-time="54">با قسەی خەڵکی بێدەنگ بن ، تۆ هەر بەهێز و بەرزی ،</div>
+                    <div class="lyric-line" data-time="57">لەناو هەموو سەرما و گەرمای امتیحانەکان بردی .</div>
+                    <div class="lyric-line" data-time="60">ئێستا کاتی حەوانەوە و کاتی گەشت و خۆشییە ،</div>
+                    <div class="lyric-line" data-time="63">بژی ( سايه ) ی پاڵەوان ، پیرۆزبایی لێ دەکەين .</div>
+                    <div class="lyric-line" data-time="66">بژی ( سايه ) ... پیرۆزە ئازادی !</div>
                 </div>
             </div>
         </div>
